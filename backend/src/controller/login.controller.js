@@ -5,7 +5,7 @@ class loginController {
   sign(ctx, next) {
     //登录逻辑
     //1.用户等于使用jwt实现token,方便以后对用户进行token验证
-    const { id, name } = ctx.user;
+    const { id, name, isAdmin, avatorUrl } = ctx.user;
 
     //根据私钥进行token的颁发
     const token = jwt.sign({ id, name }, PRIVATE_KEY, {
@@ -15,23 +15,25 @@ class loginController {
 
     //2.返回登录成功信息
     ctx.body = {
-      code: 200,
+      status: "ok",
       data: {
         id,
         name,
         token,
+        isAdmin,
+        avatorUrl,
       },
     };
   }
 
-  test(ctx, next) {
-    const { id, name } = ctx.user;
+  getUserInfo(ctx, next) {
+    const info = ctx.user;
 
     ctx.body = {
+      status: "ok",
       data: {
         code: 200,
-        id,
-        name,
+        info,
       },
     };
   }

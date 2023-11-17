@@ -11,6 +11,7 @@ const { PUBLIC_KEY } = require("../config/secretKey");
 
 const verityLogin = async (ctx, next) => {
   const { name, password } = ctx.request.body;
+  console.log(name, password);
   //1.判断用户名密码是否为空
   if (!name || !password) {
     return ctx.app.emit("error", NAME_OR_PASSWORD_IS_REQUIRED, ctx);

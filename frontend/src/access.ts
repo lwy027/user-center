@@ -1,9 +1,11 @@
+import myLocalStorage from './utils/LocalStorage.js';
 /**
  * @see https://umijs.org/zh-CN/plugins/plugin-access
  * */
 export default function access(initialState: { currentUser?: API.CurrentUser } | undefined) {
-  const { currentUser } = initialState ?? {};
+  const info = JSON.parse(localStorage.getItem('userInfo'));
+
   return {
-    canAdmin: currentUser && currentUser.access === 'admin',
+    canAdmin: info && info.isAdmin === 1,
   };
 }

@@ -27,6 +27,12 @@ declare namespace API {
     status?: string;
     type?: string;
     currentAuthority?: string;
+    data: {
+      id: number;
+      name: String;
+      token: String;
+      // isAdmin?: number;
+    };
   };
 
   type PageParams = {
@@ -62,9 +68,15 @@ declare namespace API {
   };
 
   type LoginParams = {
-    username?: string;
+    name?: string;
     password?: string;
     autoLogin?: boolean;
+    type?: string;
+  };
+  type RegisterParams = {
+    name?: string;
+    password?: string;
+    checkPassword: String;
     type?: string;
   };
 
