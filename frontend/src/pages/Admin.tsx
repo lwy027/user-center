@@ -5,6 +5,7 @@ import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { Button, Dropdown, Space, Tag, Watermark } from 'antd';
 import { useEffect, useRef, useState } from 'react';
 import WaterMark from '@/components/WaterMark';
+import BasisForm from '@/components/Basis_Form';
 export const waitTimePromise = async (time: number = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -130,7 +131,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
 
 export default () => {
   const actionRef = useRef<ActionType>();
-
+  const [isShow, setIsShow] = useState<boolean>(false);
   return (
     <>
       <ProTable<GithubIssueItem>
@@ -141,7 +142,6 @@ export default () => {
           console.log(sort, filter);
           const { data } = await getAllUser();
           const { userData } = data as any;
-
           return {
             data: userData,
           };
@@ -188,6 +188,7 @@ export default () => {
             key="button"
             icon={<PlusOutlined />}
             onClick={() => {
+              setIsShow(true);
               actionRef.current?.reload();
             }}
             type="primary"
@@ -196,6 +197,7 @@ export default () => {
           </Button>,
         ]}
       />
+      {isShow && <BasisForm type="account" setIsShow={setIsShow} />}
       <WaterMark />
     </>
   );

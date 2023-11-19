@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const userStyled = styled.div`
-  width: 200px;
+  width: 300px;
   display: flex;
   justify-content: end;
   justify-content: space-around;

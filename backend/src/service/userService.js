@@ -25,7 +25,7 @@ class userService {
     const statement = "UPDATE  `user` SET avatorUrl= ? WHERE id = ?;";
 
     const [result] = await connection.execute(statement, [avatorUrl, id]);
-    console.log(result);
+
     return result;
   }
 }

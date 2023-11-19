@@ -92,8 +92,9 @@ export const errorConfig: RequestConfig = {
       // const url = config?.url?.concat('?token = 123');
 
       const token = JSON.parse(localStorage.getItem('userInfo')!);
+
       if (token) {
-        config.headers!.authorization = token;
+        config.headers!.authorization = token.token;
       }
       return { ...config };
     },

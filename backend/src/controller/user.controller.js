@@ -32,14 +32,14 @@ class userController {
     };
   }
 
+  //上传头像
   async updataAvator(ctx, next) {
     //查询数据库
-    const { filename, mimetype, destination, size } = ctx.req.file;
+    // const { filename, mimetype, destination, size } = ctx.req.file;
     const { id } = ctx.user;
     console.log(ctx.req.file);
     //保存头像信息
-    await createAvator(filename, mimetype, destination, size, id);
-
+    // await createAvator(filename, mimetype, destination, size, id);
     const path = `${SERVER_HOST}/user/getAvator/${id}`;
     //1.根据用户id更改url
     const res = await updataAvatorById(path, id);
@@ -52,6 +52,7 @@ class userController {
   }
   async getAvator(ctx, next) {
     const { id } = ctx.user;
+
     //根据id查询数据库拿到文件得到信息;
     const res = await getAvatorInfo(id);
     const { destination, filename, mimetype } = res;

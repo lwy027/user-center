@@ -20,7 +20,22 @@ export async function outLogin(options?: { [key: string]: any }) {
     ...(options || {}),
   });
 }
-
+//修改头像
+export async function updataAvator(body: any, id: any, options?: { [key: string]: any }) {
+  return request<Record<string, any>>(`/api/user/avator`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+export async function getAvatorById(id: any, options?: { [key: string]: any }) {
+  return request<Record<string, any>>(`/api/user/getAvator/${id}`, {
+    method: 'GET',
+  });
+}
 /** 登录接口 POST /api/login/account */
 export async function login(body: API.LoginParams, options?: { [key: string]: any }) {
   console.log(body);

@@ -39,7 +39,6 @@ const verifyAuth = async (ctx, next) => {
     return ctx.app.emit("error", USER_IS_NOT_ANTHORIZATION, ctx);
   }
   const token = authorization.replace("Bearer ", "");
-
   try {
     const res = jwt.verify(token, PUBLIC_KEY, {
       algorithms: ["RS256"],
