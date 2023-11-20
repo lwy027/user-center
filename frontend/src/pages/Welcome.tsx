@@ -1,6 +1,6 @@
 import { PageContainer } from '@ant-design/pro-components';
 import { useModel } from '@umijs/max';
-import { Card, Watermark, theme } from 'antd';
+import { Card, theme } from 'antd';
 import React from 'react';
 import UserInfo from '@/components/RightContext/UserInfo';
 import WaterMark from '@/components/WaterMark';

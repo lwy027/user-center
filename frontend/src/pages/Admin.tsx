@@ -2,8 +2,8 @@ import { getAllUser } from '@/services/ant-design-pro/api';
 import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
-import { Button, Dropdown, Space, Tag, Watermark } from 'antd';
-import { useEffect, useRef, useState } from 'react';
+import { Button } from 'antd';
+import { useRef, useState } from 'react';
 import WaterMark from '@/components/WaterMark';
 import BasisForm from '@/components/Basis_Form';
 export const waitTimePromise = async (time: number = 100) => {
